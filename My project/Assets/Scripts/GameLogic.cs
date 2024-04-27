@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour
 {
-    [SerializeField] private Transform[] pathPoints;
+    [SerializeField] private EnemyGroup[] pathPoints;
     [SerializeField] private Player player;
     [SerializeField] CameraMove mainCamera;
     [SerializeField] private int currentPointIndex;
@@ -19,7 +19,7 @@ public class GameLogic : MonoBehaviour
 
     private void Start()
     {
-        player.transform.position = pathPoints[currentPointIndex].position;
+        player.transform.position = pathPoints[currentPointIndex].transform.position;
 
         
     }
@@ -32,17 +32,18 @@ public class GameLogic : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            player.lookAt(pathPoints[currentPointIndex + 1].position);
+            player.lookAt(pathPoints[currentPointIndex + 1].transform.position);
         }
     }
     public void ChangeLocation()
     {
         if (currentPointIndex + 1 < pathPoints.Length) {
             currentPointIndex++;
-            player.ChangePlace(pathPoints[currentPointIndex].position);
+            player.ChangePlace(pathPoints[currentPointIndex].transform.position);
             if(currentPointIndex+1!=pathPoints.Length)
-            mainCamera.pointToLook = pathPoints[currentPointIndex + 1];
+            mainCamera.pointToLook = pathPoints[currentPointIndex + 1].transform;
         }
+
     }
 
     public void PlayerArrived(bool isWalking)
@@ -51,11 +52,19 @@ public class GameLogic : MonoBehaviour
         if (isWalking) return;
         if (currentPointIndex + 1 < pathPoints.Length)
         {
-            player.nextPointToLookAt = pathPoints[currentPointIndex + 1];
-        } 
+            player.nextPointToLookAt = pathPoints[currentPointIndex + 1].transform;
+            if(pathPoints[currentPointIndex + 1].IsAlreadyPassed())
+            {
+                ChangeLocation();
+            }
+            pathPoints[currentPointIndex + 1].onSpotCleared += ChangeLocation;
+        }
 
-
+        
     }
 
-    
+    public void CanStartShooting()
+    {
+
+    }
 }

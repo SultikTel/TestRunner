@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
-    
-
     private void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -15,14 +13,15 @@ public class ShootingSystem : MonoBehaviour
     }
     private void Fire()
     {
-        GameObject bullet = ObjectPool.instance.GetPooledObject();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        GameObject bullet = ObjectPool.instance.GetPooledObject();
         if (bullet != null)
         {
-            Ray target = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
-            bullet.transform.position = Camera.main.transform.position + new Vector3(0,3);
+            bullet.transform.position = Camera.main.transform.position;
             bullet.SetActive(true);
+            bullet.transform.rotation = Quaternion.LookRotation(ray.direction);
+
         }
     }
 }
