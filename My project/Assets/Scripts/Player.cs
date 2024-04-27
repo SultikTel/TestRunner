@@ -9,13 +9,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] private NavMeshAgent navMeshAgent;
     public Action<bool> onStatusChanged;
-    Vector3 nextPointToLookAt;
-
+    private Vector3 nextPointToLookAt;
     private bool isWalking;
-
-
-
-    // Update is called once per frame
     private void Update()
     {
         if (navMeshAgent.remainingDistance < 2f && isWalking == true && navMeshAgent.velocity.magnitude < 0.15f)

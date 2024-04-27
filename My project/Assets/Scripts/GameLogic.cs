@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameLogic : MonoBehaviour
@@ -37,7 +35,7 @@ public class GameLogic : MonoBehaviour
             currentPointIndex++;
             player.ChangePlace(pathPoints[currentPointIndex].transform.position);
             if(currentPointIndex+1!=pathPoints.Length)
-            mainCamera.pointToLook = pathPoints[currentPointIndex + 1].transform;
+            mainCamera.NewPointToLook(pathPoints[currentPointIndex + 1].transform);
         }
 
     }
