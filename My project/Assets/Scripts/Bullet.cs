@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,20 +9,16 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 11)
         {
-
             other.GetComponent<Enemy>().takeDamage(1);
         }
         
         StopAllCoroutines();
         gameObject.SetActive(false);
-        
     }
-
     private void OnEnable()
     {
         StartCoroutine(GoesTooLong());
@@ -33,5 +28,4 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(8);
         gameObject.SetActive(false);
     }
-
 }

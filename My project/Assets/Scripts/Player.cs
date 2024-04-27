@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private NavMeshAgent navMeshAgent;
     public Action<bool> onStatusChanged;
-    public Transform nextPointToLookAt;
+    Vector3 nextPointToLookAt;
 
     private bool isWalking;
 
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 
         if (nextPointToLookAt != null)
         {
-            Vector3 lookDirection = nextPointToLookAt.position - transform.position;
+            Vector3 lookDirection = nextPointToLookAt - transform.position;
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(lookDirection), Time.deltaTime);
         }
     }
@@ -46,16 +46,15 @@ public class Player : MonoBehaviour
 
     public void Arrived()
     {
-        Debug.Log("fee");
+        
         isWalking = false;
         onStatusChanged?.Invoke(isWalking);
     }
 
     
 
-    public void lookAt(Vector3 pos)
+    public void changeLookPoint(Vector3 pos)
     {
-       
-        transform.LookAt(pos);
+        nextPointToLookAt = pos;
     }
 }

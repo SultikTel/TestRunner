@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField] private Animator animator;
     [SerializeField] private Slider health;
     [SerializeField] private CapsuleCollider col;
@@ -20,7 +17,7 @@ public class Enemy : MonoBehaviour
         if (isAlive)
         {
             hp -= damage;
-            Debug.Log(hp);
+           
             health.value = hp;
             if (hp <= 0)
             {

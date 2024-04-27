@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 
@@ -21,7 +19,7 @@ public class EnemyGroup : MonoBehaviour
         deathCount++;
         if (deathCount == ememiesOnSpot.Length)
         {
-            Debug.Log("gg");
+            
             onSpotCleared?.Invoke();
         }
     }

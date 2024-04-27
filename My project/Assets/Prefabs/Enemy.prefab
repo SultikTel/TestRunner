@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3156182981779546172}
   - component: {fileID: 3156182981779546173}
   - component: {fileID: 2586192929672700851}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 3156182981899988763}
   - component: {fileID: 3156182981899988764}
   - component: {fileID: 3156182981899988765}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 3156182981997376567}
   - component: {fileID: 3156182981997376565}
   - component: {fileID: 3156182981997376566}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 3156182982045343621}
   - component: {fileID: 3156182982045343619}
   - component: {fileID: 3156182982045343620}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5688220106581241575}
   serializedVersion: 2
-  m_Mass: 12.5
+  m_Mass: 150
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -951,10 +951,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.09811636
-  m_Height: 0.4905818
+  m_Radius: 0.06
+  m_Height: 0.49058527
   m_Direction: 0
-  m_Center: {x: 0.2452909, y: 0, z: 0}
+  m_Center: {x: 0.2452926, y: 0, z: 0}
 --- !u!144 &3156182982887162262
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1506,8 +1506,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40920788, y: 0.2783776, z: 0.38197836}
-  m_Center: {x: -0.20460388, y: 0.025449693, z: -0.00000023841858}
+  m_Size: {x: 0.49796996, y: 0.2783776, z: 0.38197836}
+  m_Center: {x: -0.24898493, y: 0.025449704, z: -0.00000022927037}
 --- !u!144 &3156182982477874043
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2480,8 +2480,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.09549459
-  m_Center: {x: 0, y: 0.09549459, z: 0}
+  m_Radius: 0.17366502
+  m_Center: {x: -2.214464e-18, y: 0.07805011, z: 0.0000000023260747}
 --- !u!144 &3156182981294882829
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3033,7 +3033,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.09811705
+  m_Radius: 0.06
   m_Height: 0.49058527
   m_Direction: 0
   m_Center: {x: -0.24529263, y: 0, z: 0}
@@ -3243,8 +3243,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7496842086350950764}
-  - component: {fileID: 3156182981729066948}
   - component: {fileID: 3156182981729066949}
+  - component: {fileID: 576011642732657868}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Untagged
@@ -3269,20 +3269,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &3156182981729066948
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7496842086350950765}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.36
-  m_Height: 1.9292965
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8761058, z: 0}
 --- !u!114 &3156182981729066949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3297,4 +3283,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5739621994700902683}
   health: {fileID: 3156182981779546173}
-  col: {fileID: 3156182981729066948}
+  col: {fileID: 576011642732657868}
+--- !u!136 &576011642732657868
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7496842086350950765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29
+  m_Height: 1.99
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.87783647, z: 0}
